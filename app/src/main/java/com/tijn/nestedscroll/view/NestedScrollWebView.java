@@ -204,8 +204,7 @@ public class NestedScrollWebView extends WebView implements NestedScrollingChild
                 if (dispatchNestedPreScroll(0, deltaY, mScrollConsumed, mScrollOffset,
                         ViewCompat.TYPE_TOUCH)) {
                     deltaY -= mScrollConsumed[1];
-                    ev.offsetLocation(0, -mScrollOffset[1]);
-                    vtev.offsetLocation(0, -mScrollOffset[1]);
+                    vtev.offsetLocation(0, mScrollOffset[1]);
                     mNestedYOffset += mScrollOffset[1];
                 }
 
