@@ -1,2 +1,3 @@
 # NestedScrollWebView
 基于NestedScrollView改写的WebView 处理CoordinatorLayout关联滑动问题
+网络上的都没有fling效果 所以改写了一下NestedScrollView
