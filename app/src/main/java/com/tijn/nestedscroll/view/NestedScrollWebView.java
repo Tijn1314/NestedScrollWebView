@@ -204,7 +204,8 @@ public class NestedScrollWebView extends WebView implements NestedScrollingChild
                 if (dispatchNestedPreScroll(0, deltaY, mScrollConsumed, mScrollOffset,
                         ViewCompat.TYPE_TOUCH)) {
                     deltaY -= mScrollConsumed[1];
-                    vtev.offsetLocation(0, mScrollOffset[1]);
+                    ev.offsetLocation(0, -mScrollOffset[1]);
+                    vtev.offsetLocation(0, -mScrollOffset[1]);
                     mNestedYOffset += mScrollOffset[1];
                 }
 
@@ -769,4 +770,13 @@ public class NestedScrollWebView extends WebView implements NestedScrollingChild
         }
     }
 
+    /**
+     * Stop any current scroll
+     * #fling(int, int)} or a touch-initiated fling.
+     */
+    public void stopScroll() {
+        if (mScroller != null) {
+            mScroller.forceFinished(true);
+        }
+    }
 }
