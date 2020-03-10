@@ -13,7 +13,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private TabLayout mTabLayout;
-    private List<Fragment> mFragment;
     List<String> titles;
     ViewPager mViewPager;
 
@@ -38,34 +37,26 @@ public class MainActivity extends AppCompatActivity {
         mTabLayout.addTab(mTabLayout.newTab().setText(titles.get(3)));
         mTabLayout.addTab(mTabLayout.newTab().setText(titles.get(3)));
 
-        mFragment = new ArrayList<>();
-        mFragment.add(new WebViewViewPagerFragment());
-        mFragment.add(new WebViewViewPagerFragment());
-        mFragment.add(new WebViewViewPagerFragment());
-        mFragment.add(new WebViewViewPagerFragment());
-        mFragment.add(new WebViewViewPagerFragment());
         mViewPager = findViewById(R.id.view_pager_view_pager);
-        HomeFragmentPagerAdapter adapter = new HomeFragmentPagerAdapter(getSupportFragmentManager(), mFragment);
+        HomeFragmentPagerAdapter adapter = new HomeFragmentPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mViewPager);
     }
 
     public class HomeFragmentPagerAdapter extends FragmentPagerAdapter {
-        public List<Fragment> mList;
 
-        public HomeFragmentPagerAdapter(FragmentManager fm, List<Fragment> mList) {
+        public HomeFragmentPagerAdapter(FragmentManager fm) {
             super(fm);
-            this.mList = mList;
         }
 
         @Override
         public Fragment getItem(int position) {
-            return mList.get(position);
+            return new WebViewViewPagerFragment();
         }
 
         @Override
         public int getCount() {
-            return mList.size();
+            return titles.size();
         }
 
         @Override
