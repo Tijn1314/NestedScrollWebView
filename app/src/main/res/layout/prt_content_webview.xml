@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.tijn.nestedscroll.view.NestedScrollWebView
+    <com.tijn.nestedscroll.view.SlidingConflictWebView
         android:id="@+id/web"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"></com.tijn.nestedscroll.view.NestedScrollWebView>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"></com.tijn.nestedscroll.view.SlidingConflictWebView>
 
 </FrameLayout>
