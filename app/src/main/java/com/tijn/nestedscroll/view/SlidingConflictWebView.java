@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewParent;
 
+import com.example.nestedscrollwebview.NestedScrollWebView;
+
 /**
  * 处理跟viewpager 滑动冲突问题
  */

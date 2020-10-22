@@ -1,1 +1,2 @@
+include ':nestedscrollwebview'
 include ':app'

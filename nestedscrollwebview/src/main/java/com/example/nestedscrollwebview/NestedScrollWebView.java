@@ -1,4 +1,4 @@
-package com.tijn.nestedscroll.view;
+package com.example.nestedscrollwebview;
 
 
 import android.content.Context;
