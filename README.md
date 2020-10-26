@@ -1,5 +1,5 @@
 # NestedScrollWebView
-基于NestedScrollView改写的WebView 处理CoordinatorLayout关联滑动问题，增加了都没有fling效果，并且日活千万验证
+基于NestedScrollView改写的WebView 处理CoordinatorLayout关联滑动问题，增加了都没有fling效果
 
 <img src="https://github.com/Tijn1314/NestedScrollWebView/blob/master/pic/device.png" alt="show" />
 
