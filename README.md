@@ -11,7 +11,7 @@ allprojects {
     }
 }
 dependencies {
-    implementation 'com.github.Tijn1314:NestedScrollWebView:1.0'
+    implementation 'com.github.Tijn1314:NestedScrollWebView:1.1'
 }
 ```
 ## Usage
