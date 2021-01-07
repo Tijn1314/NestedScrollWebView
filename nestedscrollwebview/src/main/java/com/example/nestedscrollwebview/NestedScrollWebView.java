@@ -224,23 +224,28 @@ public class NestedScrollWebView extends WebView implements NestedScrollingChild
                 }
                 if (mIsBeingDragged) {
                     mLastMotionY = y - mScrollOffset[1];
+//                    final int oldY = getScrollY();
+//                    final int range = getScrollRange();
+//                    int unconsumedY = 0;
+//                    int scrolledDeltaY = deltaY;
+//                    int expectScroll = oldY + deltaY;
+//                    if (expectScroll < 0) {
+//                        unconsumedY = expectScroll;
+//                        scrolledDeltaY = oldY;
+//                    } else if (expectScroll > range) {
+//                        unconsumedY = range - expectScroll;
+//                        scrolledDeltaY = expectScroll - range;
+//                    }
+                    //借鉴tobiasrohloff的滚动处理  处理抖动问题
                     final int oldY = getScrollY();
-                    final int range = getScrollRange();
-                    int unconsumedY = 0;
-                    int scrolledDeltaY = deltaY;
-                    int expectScroll = oldY + deltaY;
-                    if (expectScroll < 0) {
-                        unconsumedY = expectScroll;
-                        scrolledDeltaY = oldY;
-                    } else if (expectScroll > range) {
-                        unconsumedY = range - expectScroll;
-                        scrolledDeltaY = expectScroll - range;
-                    }
+                    int newScrollY = Math.max(0, oldY + deltaY);
+                    int scrolledDeltaY = newScrollY - oldY;
+                    int unconsumedY = deltaY - scrolledDeltaY;
                     if (dispatchNestedScroll(0, scrolledDeltaY, 0, unconsumedY, mScrollOffset,
                             ViewCompat.TYPE_TOUCH)) {
+                        mLastMotionY -= mScrollOffset[1];
                         vtev.offsetLocation(0, mScrollOffset[1]);
                         mNestedYOffset += mScrollOffset[1];
-                        mLastMotionY -= mScrollOffset[1];
                     }
                 }
                 notMove &= (mScrollOffset[1] == 0);
